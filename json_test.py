@@ -1,11 +1,12 @@
 #%%
 import json
-
-from torch import le
-
 fake_json_path = "listings_0.json"
 json_path = "work.json"
 njson_path = "nwork.json"
+#%%
+from torch import le
+
+
 with open(njson_path, "w") as fout:
     fout.write("[\n   ")
     with open(fake_json_path) as fin:
@@ -49,7 +50,8 @@ class item:
         self.product_type = Product_type
         self.category = Category
     def display(self):
-        print("Item Name:{} category is {} ,and the size is {} * {} * {}".format(self.name,self.product_type, self.height.to_str(),self.width.to_str(),self.length.to_str()))
+        print("Item Name:{} Product_type is {} ,and the size is {} * {} * {}".format(self.name,self.product_type, self.height.to_str(),self.width.to_str(),self.length.to_str()))
+        print("Product Category is {} and weight is {}",self.category,self.weight.to_str())
 
 # %%
 data[2]['item_dimensions']
@@ -67,7 +69,7 @@ for dat in data:
         #print(dat['item_dimensions'])
         #print(dat['item_weight'])
         #print(dat['product_type'])
-        print(dat['item_name'])
+        #print(dat['item_name'])
         weight = size(dat['item_weight'][0]['value'],dat['item_weight'][0]['unit'])
         height = size(dat['item_dimensions']['height']['value'],dat['item_dimensions']['height']['unit'])
         length = size(dat['item_dimensions']['length']['value'],dat['item_dimensions']['length']['unit'])
